@@ -21,6 +21,7 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+	background: linear-gradient(180deg, #826cff 50%, #7a00ff 50%);
 }
 
 .controls {
