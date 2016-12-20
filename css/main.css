@@ -1,3 +1,10 @@
 html,body {
 	background: #290f3a;
 }
+
+h1 {
+	font-family: 'Aclonica';
+    color: #d1c3ff;
+    text-align: center;
+    font-size: 3em;
+}
