@@ -23,6 +23,7 @@ function sessionSet(){
 		sessionVal = increaseVal(sessionVal);
 		console.log("sessionVal value increased by sessionSet():" + sessionVal);
 		$("span#session-val").html(sessionVal);
+		$("p#timer-session-val").html(sessionVal);
 	});
 	
 	$("#decrease-session").click(function(){
@@ -30,6 +31,7 @@ function sessionSet(){
 		sessionVal = decreaseVal(sessionVal);
 		console.log("sessionVal value decreased by sessionSet():" + sessionVal);
 		$("span#session-val").html(sessionVal);
+		$("p#timer-session-val").html(sessionVal);
 	});
 }
 
