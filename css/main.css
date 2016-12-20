@@ -2,7 +2,7 @@ html,body {
 	background: #290f3a;
 }
 
-h1, .controls p ,span, button {
+h1, .controls p ,span, button, .timer p {
 	color: #d1c3ff;
 }
 
@@ -49,4 +49,9 @@ button, span {
 	font-size: 2em; 
 }
 
+.timer p {
+	text-align: center;
+    font-size: 3em;
+    margin-top: 70px;
+}
 
