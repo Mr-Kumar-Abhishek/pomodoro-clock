@@ -2,14 +2,18 @@ html,body {
 	background: #290f3a;
 }
 
+h1, .controls p ,span, button {
+	color: #d1c3ff;
+}
+
 h1 {
 	font-family: 'Aclonica';
-    color: #d1c3ff;
     text-align: center;
     font-size: 3em;
 }
 
 .timer {
+	 margin-top: 5vw;
 	 border-radius: 50%;
     border: 2px solid #826cff;
     width: 290px;
@@ -17,3 +21,32 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+
+.controls {
+	display: flex;
+	justify-content: center;
+}
+
+.control-box{
+	margin-left: 30px;
+	margin-right: 30px;
+	text-align: center;
+}
+
+button {
+	background: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.controls p {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+button, span {
+	font-size: 2em; 
+}
+
+
