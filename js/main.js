@@ -1,4 +1,16 @@
 
+function decreaseVal(decVal){
+	if(decVal > 1) {
+	 --decVal;
+	}else{
+		console.warn("minimum value reached while decreasing");
+	}
+	return decVal;
+}
+
+function increaseVal(incVal){
+	return ++incVal;
+}
 
 function sessionSet(){
 	
@@ -8,14 +20,14 @@ function sessionSet(){
 	
 	$("#increase-session").click(function(){
 		console.log("#increase-session clicked .....");
-		++sessionVal;
+		sessionVal = increaseVal(sessionVal);
 		console.log("sessionVal value increased by sessionSet():" + sessionVal);
 		$("span#session-val").html(sessionVal);
 	});
 	
 	$("#decrease-session").click(function(){
 		console.log("#decrease-session clicked ....");
-		--sessionVal;
+		sessionVal = decreaseVal(sessionVal);
 		console.log("sessionVal value decreased by sessionSet():" + sessionVal);
 		$("span#session-val").html(sessionVal);
 	});
@@ -29,14 +41,14 @@ function breakSet(){
 	
 	$("#increase-break").click(function(){
 		console.log("#increase-break clicked ....");
-		++breakVal;
+		breakVal = increaseVal(breakVal);
 		console.log("breakVal value increased by breakSet():" + breakVal );
 		$("span#break-val").html(breakVal);
 	});
 	
 	$("#decrease-break").click(function(){
 		console.log("#increase-break clicked ....");
-		--breakVal;
+		breakVal = decreaseVal(breakVal);
 		console.log("breakVal value decreased by breakSet():" + breakVal );
 		$("span#break-val").html(breakVal);
 	});	
