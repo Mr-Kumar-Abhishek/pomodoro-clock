@@ -46,7 +46,7 @@ function clockMe() {
 	}else if ( isSessionRunning == false ){
 		seconds = 0;
 		minutes = $("span#break-val").text();
-		$("p#break-or-session").html("Break");
+		$("p#break-or-session").html("Break !");
 	}
 	
 	timeClocker = setInterval(clocking, 1000);
