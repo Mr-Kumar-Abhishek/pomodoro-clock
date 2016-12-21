@@ -1,11 +1,27 @@
 var runningClock = false;
+var isClockReset = true;
+var timeClocker;
+
+function clocking(){
+	
+	console.log("clocking() ran ...");	
+}
+
+function clockMe() {
+	console.log("clockMe() running ..");
+
+		
+	timeClocker = setTimeout(clocking, 500);
+}
 
 function tehClock(){
 	$(".timer").click(function(){
 		if(runningClock == false){
 			runningClock = true;
+			clockMe();
 			console.log("teh Clock is running... (just imagine for now)");
 		}else{
+			clearTimeout(timeClocker);
 			runningClock = false;
 			console.log("teh Clock stopped .... (just imagine for now )");
 		}
