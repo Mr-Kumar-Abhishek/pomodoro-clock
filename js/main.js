@@ -1,13 +1,28 @@
 var runningClock = false;
+var timeClocker;
+
+function clocking(){
+	
+	console.log("clocking() ran ...");	
+}
+
+function clockMe() {
+	console.log("clockMe() running ..");
+
+		
+	timeClocker = setInterval(clocking, 1000);
+}
 
 function tehClock(){
 	$(".timer").click(function(){
 		if(runningClock == false){
 			runningClock = true;
-			console.log("teh Clock is running... (just imagine for now)");
+			clockMe();
+			console.log("teh Clock is running... ");
 		}else{
+			clearInterval(timeClocker);
 			runningClock = false;
-			console.log("teh Clock stopped .... (just imagine for now )");
+			console.log("teh Clock stopped ....");
 		}
 	});
 }
