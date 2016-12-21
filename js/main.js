@@ -1,15 +1,54 @@
 var runningClock = false;
+var isClockReset = true;
+var isSessionRunning = false;
 var timeClocker;
+var seconds;
+var minutes;
 
 function clocking(){
 	
-	console.log("clocking() ran ...");	
+	
+	console.log("clocking() is running ...");
+	
+	--seconds;
+	if(seconds <= 0){
+		seconds = 59;
+		--minutes
+		if(minutes < 0 ){
+			clearTimeout(timeClocker);
+			seconds = 0;
+			minutes = 0;
+			if(isSessionRunning == true){
+				isSessionRunning = false;
+			}else{
+				isSessionRunning = true;
+			}
+			clockMe();
+		}
+	}
+	
+	console.log("clocking() ran ..." + " seconds: " + seconds + " minutes: " + minutes);
+	
+	var timeText = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+	
+	$("#timer-session-val").html(timeText);
 }
 
 function clockMe() {
 	console.log("clockMe() running ..");
-
-		
+	
+	if (isClockReset == true || isSessionRunning == true){
+		seconds = 0;
+		minutes = $("span#session-val").text();
+		isClockReset = false;
+		isSessionRunning = true;
+		$("p#break-or-session").html("Session");
+	}else if ( isSessionRunning == false ){
+		seconds = 0;
+		minutes = $("span#break-val").text();
+		$("p#break-or-session").html("Break");
+	}
+	
 	timeClocker = setInterval(clocking, 1000);
 }
 
@@ -55,6 +94,7 @@ function sessionSet(){
 			console.log("sessionVal value increased by sessionSet():" + sessionVal);
 			$("span#session-val").html(sessionVal);
 			$("p#timer-session-val").html(sessionVal);
+			isClockReset = true;
 		}
 	});
 	
@@ -67,6 +107,7 @@ function sessionSet(){
 			console.log("sessionVal value decreased by sessionSet():" + sessionVal);
 			$("span#session-val").html(sessionVal);
 			$("p#timer-session-val").html(sessionVal);
+			isClockReset = true;
 		}
 	});
 }
@@ -85,6 +126,7 @@ function breakSet(){
 			breakVal = increaseVal(breakVal);
 			console.log("breakVal value increased by breakSet():" + breakVal );
 			$("span#break-val").html(breakVal);
+			isClockReset = true;
 		}
 	});
 	
@@ -96,6 +138,7 @@ function breakSet(){
 			breakVal = decreaseVal(breakVal);
 			console.log("breakVal value decreased by breakSet():" + breakVal );
 			$("span#break-val").html(breakVal);
+			isClockReset = true;
 		}
 	});	
 }
