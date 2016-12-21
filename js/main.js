@@ -11,7 +11,7 @@ function clockMe() {
 	console.log("clockMe() running ..");
 
 		
-	timeClocker = setTimeout(clocking, 500);
+	timeClocker = setInterval(clocking, 500);
 }
 
 function tehClock(){
@@ -21,7 +21,7 @@ function tehClock(){
 			clockMe();
 			console.log("teh Clock is running... (just imagine for now)");
 		}else{
-			clearTimeout(timeClocker);
+			clearInterval(timeClocker);
 			runningClock = false;
 			console.log("teh Clock stopped .... (just imagine for now )");
 		}
